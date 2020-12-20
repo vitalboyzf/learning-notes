@@ -1,0 +1,63 @@
+.container {
+    width: 300px;
+    height: 150px;
+    background-color: #eee;
+    padding: 10px;
+    position: relative;
+    box-shadow: 2px 3px 3px #888, -1px -1px 1px #888;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10%;
+    user-select: none;
+}
+
+.container i {
+    position: absolute;
+    right: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #f40;
+}
+
+.container .dialog-content {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    height: 60px;
+    font-size: 25px;
+    font-weight: bold;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.container .footer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.container .footer .btn {
+    width: 140px;
+    height: 30px;
+    outline: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: .3s;
+    border-radius: 5px;
+
+}
+
+.container .footer .btn:hover {
+    transform: scale(1.1);
+}
+
+.container .footer .btn-cancel {
+    background-color: #f40;
+}
+
+.container .footer .btn-confirm {
+    background-color: #0f0;
+}
