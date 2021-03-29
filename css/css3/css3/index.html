@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @keyframes cover {
+            from {
+                border-left-color: rgba(0, 0, 0, 0);
+            }
+
+            50% {
+                border-left-color: rgba(0, 0, 0, 1);
+
+            }
+
+            100% {
+                border-left-color: rgba(0, 0, 0, 0);
+
+            }
+        }
+
+        @keyframes run {
+            from {
+                left: 0;
+            }
+
+            to {
+                left: 100%;
+            }
+        }
+
+        .word {
+            position: relative;
+            font-size: 80px;
+            font-weight: bold;
+            font-family: monospace;
+            height: 100px;
+            line-height: 100px;
+            display: inline-block;
+            box-sizing: border-box;
+
+        }
+
+        .word::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0px;
+            height: 100px;
+            width: 100%;
+            background: #fff;
+            border-left: 2px solid;
+            animation: cover 1s step-end infinite, run 4s steps(20, end);
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="word">
+        My name is Zhangfei.
+    </div>
+
+
+</body>
+
+</html>

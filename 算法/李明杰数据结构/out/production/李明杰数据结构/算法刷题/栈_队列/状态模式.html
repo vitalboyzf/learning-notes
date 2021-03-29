@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>状态模式</title>
+</head>
+<body>
+<p>
+    <span>状态：</span>
+<h3 class="state">未接电</h3>
+<div class="info"></div>
+</p>
+<div>
+    <button class="open">打开盖子</button>
+    <button class="close">关闭盖子</button>
+    <button class="cooking">开始煮饭</button>
+    <button class="powerOn">打开电源</button>
+    <button class="powerOff">关闭电源</button>
+</div>
+<script>
+    class Context {
+
+        constructor(stateEl, infoEl) {
+            this.stateEl = stateEl;
+            this.infoEl = infoEl;
+            this.currentState = new PowerOffState(this);
+        }
+
+        changeStateTo(newState) {
+            this.stateEl.innerText = newState.getName();
+            this.infoEl.innerText = "";
+            this.currentState = newState;
+        }
+
+        msg(info) {
+            this.infoEl.innerText = info;
+        }
+
+        open() {
+            this.currentState.open()
+        }
+
+        close() {
+            this.currentState.close();
+        }
+
+        cooking() {
+            this.currentState.cooking();
+        }
+
+        powerOn() {
+            this.currentState.powerOn();
+        }
+
+        powerOff() {
+            this.currentState.powerOff();
+        }
+    }
+
+    class State {
+        constructor(msg) {
+            this.msg = msg;
+        }
+
+        getName() {
+            return this.msg;
+        }
+    }
+
+    // 高压锅接通电源状态
+    class PowerOnState extends State {
+        constructor(ctx) {
+            super("接通电源")
+            this.ctx = ctx;
+        }
+
+        open() {
+            this.ctx.changeStateTo(new OpenState(this.ctx));
+        }
+
+        close() {
+            this.ctx.changeStateTo(new CloseState(this.ctx));
+        }
+
+        cooking() {
+            this.ctx.changeStateTo(new CookingState(this.ctx));
+        }
+
+        powerOn() {
+            this.ctx.msg("已经接通了电源");
+        }
+
+        powerOff() {
+            this.ctx.changeStateTo(new PowerOffState(this.ctx));
+        }
+    }
+
+    class PowerOffState extends State {
+        constructor(ctx) {
+            super("关闭电源")
+            this.ctx = ctx;
+        }
+
+        open() {
+            this.ctx.changeStateTo(new OpenState(this.ctx));
+        }
+
+        close() {
+            this.ctx.changeStateTo(new CloseState(this.ctx));
+        }
+
+        cooking() {
+            this.ctx.msg("请先接通电源");
+        }
+
+        powerOn() {
+            this.ctx.changeStateTo(new PowerOnState(this.ctx));
+        }
+
+        powerOff() {
+            this.ctx.msg("已经关闭了电源");
+        }
+    }
+
+    class OpenState extends State {
+        constructor(ctx) {
+            super("打开盖子")
+            this.ctx = ctx;
+        }
+
+        open() {
+            this.ctx.msg("盖子已经打开了");
+        }
+
+        close() {
+            this.ctx.changeStateTo(new CloseState(this.ctx));
+        }
+
+        cooking() {
+            this.ctx.msg("请先关闭盖子");
+        }
+
+        powerOn() {
+            this.ctx.changeStateTo(new PowerOnState(this.ctx));
+        }
+
+        powerOff() {
+            this.ctx.changeStateTo(new PowerOffState(this.ctx));
+        }
+    }
+
+    class CloseState extends State {
+        constructor(ctx) {
+            super("关闭盖子")
+            this.ctx = ctx;
+        }
+
+        open() {
+            this.ctx.changeStateTo(new OpenState(this.ctx));
+        }
+
+        close() {
+            this.ctx.msg("盖子已经关闭了");
+        }
+
+        cooking() {
+            this.ctx.changeStateTo(new CookingState(this.ctx));
+        }
+
+        powerOn() {
+            this.ctx.changeStateTo(new PowerOnState(this.ctx));
+        }
+
+        powerOff() {
+            this.ctx.changeStateTo(new PowerOffState(this.ctx));
+        }
+    }
+
+    class CookingState extends State {
+        constructor(ctx) {
+            super("开始煮饭")
+            this.ctx = ctx;
+        }
+
+        open() {
+            this.ctx.msg("我会爆你一屋子！");
+        }
+
+        close() {
+            this.ctx.msg("盖子已经关闭");
+        }
+
+        cooking() {
+            this.ctx.msg("正在煮饭");
+        }
+
+        powerOn() {
+            this.ctx.msg("电源已经打开");
+        }
+
+        powerOff() {
+            this.ctx.changeStateTo(new PowerOffState(this.ctx));
+        }
+    }
+
+    const open = document.querySelector(".open");
+    const close = document.querySelector(".close");
+    const cooking = document.querySelector(".cooking");
+    const powerOn = document.querySelector(".powerOn");
+    const powerOff = document.querySelector(".powerOff");
+    const ctx = new Context(document.querySelector(".state"), document.querySelector(".info"))
+    open.addEventListener("click", () => {
+        ctx.open();
+    })
+    close.addEventListener("click", () => {
+        ctx.close();
+    })
+    cooking.addEventListener("click", () => {
+        ctx.cooking();
+    })
+    powerOn.addEventListener("click", () => {
+        ctx.powerOn();
+    })
+    powerOff.addEventListener("click", () => {
+        ctx.powerOff();
+    })
+</script>
+</body>
+</html>

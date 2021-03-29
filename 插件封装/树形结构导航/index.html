@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+            position: relative;
+        }
+
+        em {
+            width: 10px;
+            height: 10px;
+            display: inline-block;
+            background: #000;
+            position: absolute;
+            left: -13px;
+            top: 5px;
+        }
+
+        em.open {
+            background: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ztree-container">
+        <ul class="ztree-level">
+            <!-- <li>
+                <a href="#" class="ztree-title">${name}</a>
+                <em class="ztree-icon ${open ? " open" : "" }"></em>
+            </li> -->
+        </ul>
+    </div>
+    <script src="./index.js"></script>
+    <script>
+        new TreeStructureCollapseMenu({
+            dataUrl: "./data.json"
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="first">
+            <span>span标签</span>
+            <a href="w">第一个a</a>
+            <!--  -->
+            <a href="e">第二个a</a>
+            <p>我是一个p标签</p>
+            <div style="display:none">我是一个display的div标签</div>
+            <style>
+                p {
+                    color: red
+                }
+            </style>
+        </div>
+        <div class="second"></div>
+    </div>
+    <script>
+        const first = document.getElementsByClassName("first")[0];
+        console.log(first.ownerDocument);
+        console.log(first.childElementCount);
+        console.log(first.childNodes);
+    </script>
+</body>
+
+</html>

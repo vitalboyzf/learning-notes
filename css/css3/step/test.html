@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes runs{
+            from{
+                left:0px;
+            }
+            50%{
+                top:110px;
+            }
+            to{
+                left:100px;
+            }
+        }
+        @keyframes change{
+            from{
+                border-left-color: #000;
+            }
+            50%{
+                border-left-color: transparent;
+            }
+            to{
+                border-left-color: #000;
+            }
+        }
+        .wrapper{
+             width:500px;
+             height:30px;
+             
+        }
+        .item{
+            font-family: monospace;
+            position: relative;
+            width:100%;
+            height: 100%;
+            /* background-color: aliceblue; */
+             line-height: 30px;
+        }
+        .item::after{
+            border-left: 1px solid #000;
+            box-sizing: border-box;
+            content: "";
+            position: absolute;
+            width:100%;
+            left:0;
+            top:0;
+            display: block;
+            background-color: #fff;
+            /* opacity: .2; */
+            height: 100%;
+            animation:change 1s steps(1,end) infinite,runs 12s steps(12,end);
+
+        }
+    </style>
+</head>
+<body>
+      <div class="wrapper">
+          <div class="item">feiogjroiegjroe;</div>
+      </div>
+</body>
+</html>
