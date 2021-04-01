@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 400%;
+            background: linear-gradient(to bottom, lightblue, orange);
+            margin: 0;
+        }
+
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #f03;
+            position: fixed;
+            top: 100px;
+            left: 200px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        const box = document.querySelector(".box");
+        const minLeft = 0,
+            minTop = 0;
+        const maxLeft = document.documentElement.clientWidth - box.offsetWidth;
+        const maxTop = document.documentElement.clientHeight - box.offsetHeight;
+        // 鼠标按下处理函数
+        function down(ev) {
+            // 记录鼠标开始位置和盒子起始位置
+            const {
+                left,
+                top
+            } = box.getBoundingClientRect();
+            this.startLeft = left;
+            this.startTop = top;
+            this.startX = ev.clientX;
+            this.startY = ev.clientY;
+            window.addEventListener("mousemove", move);
+            window.addEventListener("mouseup", up);
+
+        }
+
+        function move(ev) {
+            // 目标移动到的位置等于当前鼠标的位置-鼠标的起始位置，加上盒子的起始位置
+            let targetLeft = ev.clientX - box.startX + box.startLeft;
+            let targetTop = ev.clientY - box.startY + box.startTop;
+            // 边界处理
+            targetLeft = targetLeft < minLeft ? minLeft : (targetLeft > maxLeft ? maxLeft : targetLeft);
+            targetTop = targetTop < minTop ? minTop : (targetTop > maxTop ? maxTop : targetTop);
+            box.style.left = targetLeft + "px";
+            box.style.top = targetTop + "px";
+        }
+
+        function up(ev) {
+            window.removeEventListener("mousemove", move);
+            window.removeEventListener("mouseup", up);
+        }
+
+        box.addEventListener("mousedown", down);
+    </script>
+</body>
+
+</html>

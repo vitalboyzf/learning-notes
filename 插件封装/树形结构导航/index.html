@@ -30,16 +30,17 @@
 
 <body>
     <div class="ztree-container">
-        <ul class="ztree-level">
-            <!-- <li>
+        <!-- <ul class="ztree-level"> -->
+        <!-- <li>
                 <a href="#" class="ztree-title">${name}</a>
                 <em class="ztree-icon ${open ? " open" : "" }"></em>
             </li> -->
-        </ul>
+        <!-- </ul> -->
     </div>
     <script src="./index.js"></script>
     <script>
         new TreeStructureCollapseMenu({
+            container: document.querySelector(".ztree-container"),
             dataUrl: "./data.json"
         })
     </script>

@@ -1,0 +1,31 @@
+.magnifier {
+    display: flex;
+}
+
+.magnifier .abbre {
+    box-sizing: border-box;
+    position: relative;
+}
+
+.magnifier .abbre img {
+    width: 100%;
+    height: 100%;
+}
+
+.magnifier .abbre .mark {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 0, 0, .4);
+}
+
+.magnifier .detail {
+    display: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.magnifier .detail img {
+    position: absolute;
+}

@@ -1,5 +1,8 @@
 class TreeStructureCollapseMenu {
-    constructor({ container = document.body, dataUrl }) {
+    constructor({
+        container = document.body,
+        dataUrl
+    }) {
         this.container = container;
         this.getDate(dataUrl);
         this.handler();
@@ -11,6 +14,7 @@ class TreeStructureCollapseMenu {
     }
     binding(data) {
         const ul = document.createElement("ul");
+        let n = 1;
         const html = (data) => {
             let str = ``;
             data.forEach(item => {
@@ -19,14 +23,16 @@ class TreeStructureCollapseMenu {
                     open,
                     name
                 } = item;
-                str += `<li>
+                str += `<li class="level level${n++}">
                         <a href="#" class="ztree-title">${name}</a>
-                       ${children.length > 0 ? `<em class="ztree-icon ${open ? "open" : ""} "></em>` : ""}
-                         <ul class="ztree-level" style="display:${open ? " block" : "none"}" >
+                       ${children && children.length > 0 ?
+                         `<em class="ztree-icon ${open ? "open" : ""} "></em>` : ""}
+                         <ul  style="display:${open ? " block" : "none"}" >
                                  ${html(children)}
                         </ul >
                         </li >`;
             });
+            n--;
             return str;
         };
         ul.innerHTML = html(data);
