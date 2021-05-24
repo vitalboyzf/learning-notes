@@ -13,22 +13,29 @@
         self.onFulfilledCallbacks = [];
         self.onRejectedCallbacks = [];
         var run = function (state, result) {
+            // 如果当前状态为pending,不做任何处理
             if (self.PromiseState !== PENDING) return;
+            // 不是pending，改变当前promise实例的状态
             self.PromiseState = state;
+            // 改变当前promise实例的值
             self.PromiseResult = result;
             // 异步通知后续then回调函数执行e4
             setTimeout(function () {
+                // 执行目标函数数组的所有函数
                 var callbackChains = state === FULFILLED ? self.onFulfilledCallbacks : self.onRejectedCallbacks;
                 for (var i = 0; i < callbackChains.length; i++) {
+                    // 如果是函数，执行函数并将当前promise实例的值作为参数传入
                     if (typeof callbackChains[i] === "function") {
                         callbackChains[i](self.PromiseResult);
                     }
                 }
             });
         };
+        // 失败态回调
         var reject = function reject(reason) {
             run(REJECTED, reason);
         };
+        // 成功态回调
         var resolve = function resolve(value) {
             // 处理resolve(new Promise(...))的情况
             // 当value 已决状态后调用resolve/reject,并将已决结果转递给resolve/reject函数
@@ -47,27 +54,36 @@
 
     // 统一处理基于then返回新实例的成功和失败
     function resolvePromise(promise2, x, resolve, reject) {
+        // 阻止循环引用
         if (x === promise2) {
             return reject(new TypeError("Chain cycle deleted for promise #<Promise>"));
         }
+        // 如果结果x是对象或者函数
         if ((x !== null && typeof x === "object") || typeof x === "function") {
             // 用于防止第三方promise在已决状态后修改状态
             let called = false;
             try {
+                // 获取对象的then属性
                 var then = x.then;
+                // 如果then是一个函数，x则是一个promise实例，等待已决状态结果
                 if (typeof then === "function") {
                     // 返回结果是一个新的promise实例【可能是别人构建的promise】
                     then.call(x, function (y) {
+                        // 如果已经调用过，就不再执行后续
                         if (called) return;
                         called = true;
+                        // 已决状态
                         resolvePromise(promise2, y, resolve, reject);
                     }, function (r) {
+                        // 如果已经调用过，就不再执行后续
                         if (called) return;
                         called = true;
+                        // 拒绝状态
                         reject(r);
                     });
-                } else {
-                    // 普通对象
+                }
+                // then不是一个函数，x是一个普通对象，直接resolve x
+                else {
                     resolve(x);
                 }
             } catch (err) {
@@ -75,7 +91,9 @@
                 called = true;
                 reject(err);
             }
-        } else {
+        }
+        // 结果x是普通类型，直接resolve
+        else {
             resolve(x);
         }
     }
@@ -98,16 +116,22 @@
             }
             var self = this;
             var promise = new Promise(function (resolve, reject) {
+                // 如果当前promise实例的状态是已决成功状态
                 if (self.PromiseState === FULFILLED) {
+                    // 异步执行
                     setTimeout(function () {
                         try {
+                            // 获取回调函数的返回值
                             var x = onFulfilled(self.PromiseResult);
+                            // 交给resolvePromise处理
                             resolvePromise(promise, x, resolve, reject);
                         } catch (error) {
                             reject(error);
                         }
                     });
-                } else if (self.PromiseState === REJECTED) {
+                }
+                // 如果当前promise实例是已决失败状态
+                else if (self.PromiseState === REJECTED) {
                     setTimeout(function () {
                         try {
                             var x = onRejected(self.PromiseResult);
@@ -144,6 +168,16 @@
         },
         catch: function (onRejected) {
             return this.then(null, onRejected);
+        },
+        finally: function (fn) {
+            // 执行回调，穿透到下一个then/catch
+            return this.then(data => {
+                return Promise.resolve(fn()).then(() => data);
+            }, err => {
+                return Promise.resolve(fn()).then(() => {
+                    throw err;
+                });
+            });
         }
     };
     Promise.resolve = function (value) {
@@ -209,6 +243,7 @@
             }
         });
     };
+
     if (typeof globalThis === "object") globalThis.Promise = Promise;
     else if (typeof window === "object" && window.window === window) window.Promise = Promise;
     else if (typeof global === "object") global.Promise = Promise;

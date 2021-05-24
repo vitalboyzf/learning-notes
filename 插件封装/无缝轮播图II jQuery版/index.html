@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+    <style>
+        .wrapper {
+            width: 500px;
+            height: 400px;
+            display: inline-block;
+            border: 1px solid #000;
+        }
+        .demo {
+            width: 300px;
+            height: 200px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper"></div>
+    <!-- <div class="demo"></div> -->
+    <!-- 
+        京东  从结构到样式到功能整体带着大家一起来做
+        1. 封装一个轮播图插件： ******
+            参数：  Object
+                    轮播的动画类型，
+                    尺寸（宽度，高度），
+                    是否展示左右按钮，
+                    轮播的图片路径（array），
+                    自动轮播的时间，
+                    是否展示小圆点
+                    
+        2. 导航条的区域
+        3. 搜索框（网络）  
+        4. 左侧导航区
+        5. 右侧信息区
+     -->
+     <script src="./jquery-3.3.1.js"></script>
+     <script src="./index.js"></script>
+     <script>
+        //  封装轮播图插件
+        $('.wrapper').swiper({
+            // 轮播的动画类型  animate 代表从左到右轮播  fade  淡入淡出
+            animateType: 'animate',
+            // 图片的宽度
+            imgWidth: 500,
+            // 图片的高度
+            imgHeight: 400,
+            // 是否展示左右按钮  true 展示 false 不展示
+            showChangeBtn: true,
+            // 轮播图片集合
+            imgList: [
+                "https://imgcps.jd.com/ling/140440/5bel5Lia5ZOB6LaF5ZOB5pel/6aKG5Yi45ruhMTk55YePMTAw/p-5bd8253082acdd181d02fa55/9fb62874.jpg",
+                "https://img11.360buyimg.com/pop/s590x470_jfs/t1/52038/13/13079/101786/5d9f1817Ea7519d9c/b50bd565c311d300.png.webp",
+                "https://img12.360buyimg.com/pop/s590x470_jfs/t1/71080/5/6009/92452/5d42456dE4d617109/803c88c755300dc6.jpg.webp",
+                "https://img20.360buyimg.com/pop/s590x470_jfs/t1/61649/23/12726/97091/5da1bbc1E386a40cb/bcce7f1d290ee804.jpg.webp"
+            ],
+            // 轮播的时间  ms
+            autoChangeTime: 1000,
+            // 是否展示小圆点
+            showSpotBtn: true,
+            // 是否自动轮播
+            isAuto: true,
+        })
+        $('.demo').swiper({
+            // 轮播的动画类型  animate 代表从左到右轮播  fade  淡入淡出
+            animateType: 'animate',
+            // 图片的宽度
+            imgWidth: 300,
+            // 图片的高度
+            imgHeight: 200,
+            // 是否展示左右按钮  true 展示 false 不展示
+            showChangeBtn: false,
+            // 轮播图片集合
+            imgList: [
+                "https://imgcps.jd.com/ling/140440/5bel5Lia5ZOB6LaF5ZOB5pel/6aKG5Yi45ruhMTk55YePMTAw/p-5bd8253082acdd181d02fa55/9fb62874.jpg",
+                "https://img11.360buyimg.com/pop/s590x470_jfs/t1/52038/13/13079/101786/5d9f1817Ea7519d9c/b50bd565c311d300.png.webp",
+                "https://img12.360buyimg.com/pop/s590x470_jfs/t1/71080/5/6009/92452/5d42456dE4d617109/803c88c755300dc6.jpg.webp",
+                "https://img20.360buyimg.com/pop/s590x470_jfs/t1/61649/23/12726/97091/5da1bbc1E386a40cb/bcce7f1d290ee804.jpg.webp"
+            ],
+            // 轮播的时间  ms
+            autoChangeTime: 4000,
+            // 是否展示小圆点
+            showSpotBtn: true,
+            // 是否自动轮播
+            isAuto: true,
+        })
+     </script>
+</body>
+</html>

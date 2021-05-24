@@ -9,7 +9,7 @@
 ### BFC渲染区域:
 #### 这个区域由某个HTML元素创建，以下元素会在其内部创建BFC区域：
 ==根元素==:```意味着，<html>元素创建的BFC区域,覆盖了网页中所有元素。```
-==浮动和绝对定位元素==: ```float值为left或者right```,```position值为absolute或者fixed```
+==浮动和定位元素==: ```float值为left或者right```,```position值为absolute或者fixed```
 ==overflow不等于visible的块盒==:```overflow值大多用hidden,对其他影响较小```
 ### 不同的BFC区域，它们进行渲染时互不干扰，创建BFC的元素，隔绝了它内部和外部的联系，内部渲染不会影响到外部。
 #### 具体规则：

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="warp">
+        <input type="file" id="file" />
+    </div>
+
+    <img src="" />
+    <script>
+        file.onchange = function () {
+            var fileData = this.files[0]; //这是我们上传的文件     
+            var data = new FormData();
+            data.append("img", fileData, "a.jpg");
+            console.log(data.get("img"));
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://localhost:3000/upload");
+
+            xhr.addEventListener("readystatechange", function () {
+                if (this.readyState === 4) {
+                    console.log(this.responseText);
+                }
+            });
+            xhr.send(data);
+        }
+    </script>
+</body>
+
+</html>

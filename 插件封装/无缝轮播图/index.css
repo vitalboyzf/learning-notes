@@ -1,17 +1,17 @@
-.banner-imgs {
+.banner-container .banner-imgs {
     overflow: hidden;
 }
 
-.banner-imgs img {
+.banner-container .banner-imgs img {
     -webkit-user-drag: inherit;
     display: block;
 }
 
-.banner-imgs a {
+.banner-container .banner-imgs a {
     float: left;
 }
 
-.banner-dots {
+.banner-container .banner-dots {
     position: absolute;
     background: rgba(255, 255, 255, .3);
     left: 0;
@@ -22,7 +22,7 @@
     border-radius: 8px;
 }
 
-.banner-dots span {
+.banner-container .banner-dots span {
     float: left;
     width: 8px;
     height: 8px;
@@ -32,11 +32,11 @@
     cursor: pointer;
 }
 
-.banner-dots span.active {
+.banner-container .banner-dots span.active {
     background: #f40;
 }
 
-.banner-arrow {
+.banner-container .banner-arrow {
     opacity: 0;
     transition: opacity .3s;
 }
@@ -47,7 +47,7 @@
 
 
 
-.banner-arrow .item {
+.banner-container .banner-arrow .item {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -59,16 +59,16 @@
     cursor: pointer;
 }
 
-.banner-arrow .item:hover {
+.banner-container .banner-arrow .item:hover {
     background: rgba(0, 0, 0, .5);
 }
 
-.banner-arrow .left {
+.banner-container .banner-arrow .left {
     left: 0;
     border-radius: 0 17px 17px 0;
 }
 
-.banner-arrow .right {
+.banner-container .banner-arrow .right {
     right: 0;
     border-radius: 17px 0 0 17px;
     padding-left: 7px;

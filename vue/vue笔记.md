@@ -2589,7 +2589,7 @@ axios.all([
   axios.get('/b')
 ]).then(axios.spread((aRes, bRes) => {
   console.log(aRes, bRes);
-}))
+})) 
 ```
 
 ## 拦截器

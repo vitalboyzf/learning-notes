@@ -1,2 +1,6 @@
-import { add } from "./utils.js";
-console.log(add(3, 4));
+import {
+    add,
+    obj
+} from "./utils.js";
+obj.name = "zb";
+console.log(obj);

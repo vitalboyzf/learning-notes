@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="" alt="">
+    <script>
+        async function getData() {
+            const response = await fetch('../../../插件封装/图片懒加载/images/2.jpg');
+            const myBlob = await response.blob();
+            console.log(myBlob);
+            const objectURL = URL.createObjectURL(myBlob);
+            console.log(objectURL)
+            const myImage = document.querySelector('img');
+            myImage.src = objectURL;
+        }
+        getData();
+    </script>
+</body>
+
+</html>

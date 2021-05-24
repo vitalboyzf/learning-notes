@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item {
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+            margin: 10px auto;
+        }
+
+        /*  不传方向默认to bottom*/
+        .linear1 {
+            background: linear-gradient(#f90, #000, #00f);
+        }
+
+        /* 第一个参数传递渐变走向 可以 */
+        .linear2 {
+            background: linear-gradient(to top, #f90, #000, #00f);
+        }
+
+        .linear3 {
+            background: linear-gradient(30deg, #f90, #000, #00f);
+        }
+
+        .linear4 {
+            background: linear-gradient(to right, #f90 20%, #000 60%, #00f 100%);
+        }
+
+        .radial1 {
+            background: radial-gradient(#f90, #000, #00f);
+        }
+
+        /* 默认圆形，通过第一个参数at position(left top)确定原点位置 */
+        .radial2 {
+            background: radial-gradient(at 20px 20px, #f90, #000, #00f);
+        }
+
+        /* 扩散渐变中心 */
+        .radial3 {
+            background: radial-gradient(#f90 10%, #000 40%, #00f 80%);
+        }
+
+        .radial4 {
+            background: radial-gradient(ellipse at 20px 20px, #f90, #000, #00f);
+        }
+
+        .radial5 {
+            background: radial-gradient(ellipse closest-corner at 40px 40px, #f90 10%, #000 50%, #00f);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="item linear1"></div>
+    <div class="item linear2"></div>
+    <div class="item linear3"></div>
+    <div class="item linear4"></div>
+    <div class="item linear5"></div>
+    <div class="item radial1"></div>
+    <div class="item radial2"></div>
+    <div class="item radial3"></div>
+    <div class="item radial4"></div>
+    <div class="item radial5"></div>
+</body>
+
+</html>

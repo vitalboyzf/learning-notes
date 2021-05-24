@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>hello world</h1>
+    <button id="query">查询学生</button>
+    <button id="login">登录</button>
+    <script src="/axios.js"></script>
+    <script>
+        login.onclick = function () {
+            axios.put("http://localhost:3000/api/login").then(res => {
+                console.log(res.data);
+            })
+        }
+        query.onclick = function () {
+            axios.get("http://localhost:3000/api/queryAll").then(res => {
+                console.log(res.data);
+            })
+        }
+        // 简单请求
+        // axios.defaults.withCredentials = true
+        // axios.put("http://localhost:3000/api/login").then(res => {
+        //     console.log(res.data);
+        // })
+        // axios.get("http://localhost:3000/api/queryAll").then(res => {
+        //     console.log(res.data);
+        // })
+        //   axios.get("")
+        // fetch("http://localhost:3000/api/login", {
+        //     method: "PUT",
+        //     headers: {
+        //         a: 3,
+        //     },
+        //     credentials: "include"
+        // }).then(res => res.json()).then(res => {
+        //     console.log(res);
+        // })
+        // fetch("http://localhost:3000/api/queryAll").then(res => res.json()).then(res => {
+        //     console.log(res);
+        // })
+    </script>
+</body>
+
+</html>

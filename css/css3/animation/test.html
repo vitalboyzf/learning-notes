@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes run {
+            from {
+                left: 0;
+                top: 0;
+            }
+
+            25% {
+                top: 0;
+                left: 100px;
+            }
+
+            50% {
+                top: 100px;
+                left: 100px;
+            }
+
+            75% {
+                left: 0;
+                top: 100px;
+            }
+
+            to {
+                left: 0;
+                top: 0;
+            }
+        }
+
+        div.first {
+            width: 100px;
+            height: 100px;
+            background-color: #f90;
+            position: relative;
+            animation: run 2s step-start infinite;
+        }
+
+        div.second {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            margin-top: 120px;
+            background-color: #036;
+            animation: run 2s step-end infinite;
+        }
+
+        div.thrid {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            margin-top: 120px;
+            background-color: #036;
+            animation: run 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="first">start</div>
+    <div class="second">end</div>
+    <div class="thrid"></div>
+</body>
+
+</html>

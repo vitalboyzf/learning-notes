@@ -1,0 +1,16 @@
+const { Console } = require("console");
+const path = require("path");
+// console.log(path.normalize("a/b.js"));
+// console.log(path.relative("a/b/c.js", "a/b/d/e.js"));
+// console.log(path.resolve("/test", "./name"));
+// console.log(path.join("/test", "./name"));
+// console.log(path.sep);
+// console.log(path.delimiter);
+// console.log(process.env.path);
+// console.log(path.extname("name.css"));
+// console.log(path.win32);
+// console.log(path.isAbsolute("C://"));
+// console.log(path.posix);
+// console.log(path.parse(__filename));
+// console.log(path.format({ name: "zf", root: "c:/", dir: "name", base: "index.js", ext: ".js" }));
+// console.log(path.toNamespacedPath("./a/index.js"));

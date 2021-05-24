@@ -112,7 +112,7 @@ export function createStore(reducer, defaultState, enhancer) {
         defaultState = undefined;
     }
     if(typeof enhancer === 'function'){
-        enhancer(createStore)(reducer,defaultState);
+        return enhancer(createStore)(reducer,defaultState);
     }
     // const store = createStore(reducer, applyMiddleware(middleware1, middleware2));
     let currentReducer = reducer,

@@ -76,8 +76,8 @@ class Banner {
         }
     }
     createImage() {
-        const imgs = document.createElement("div");
-        imgs.className = "banner-imgs";
+        const imageBox = document.createElement("div");
+        imageBox.className = "banner-imgs";
 
         for (let i = 0; i < this.pictures.length; i++) {
             const a = document.createElement("a");
@@ -95,10 +95,10 @@ class Banner {
             img.style.width = this.imgWidth + "px";
             img.src = this.pictures[i].src;
             a.appendChild(img);
-            imgs.appendChild(a);
+            imageBox.appendChild(a);
         }
-        this.doms.divImgs = imgs;
-        this.container.appendChild(imgs);
+        this.doms.divImgs = imageBox;
+        this.container.appendChild(imageBox);
         // 获取所有图片列表
         const children = this.doms.divImgs.children;
         const first = children[0];
@@ -157,8 +157,7 @@ class Banner {
             var dot = this.doms.divDots.children[i];
             if (i === this.currentIndex) {
                 dot.className = "active";
-            }
-            else {
+            } else {
                 dot.className = "";
             }
         }
@@ -174,9 +173,9 @@ class Banner {
             direction = "left";
         }
         // nextIndex取值0,1,2；imgNums取值1,2,3
-        const imgNums = -(nextIndex + 1);
+        const imgNums = nextIndex + 1;
         // newLeft就是最终要设置的marginLeft
-        const newLeft = imgNums * this.imgWidth;
+        const newLeft = -imgNums * this.imgWidth;
         // 动画设置过渡效果到marginLeft为newLeft
         this.animateSwitch(direction, newLeft);
 
@@ -202,12 +201,14 @@ class Banner {
         // 如果容器运动方向向左 (按右边的按钮)
         if (direction === "left") {
             // console.log("cur:", curMarginLeft, "newLeft:", newLeft);
-            // 如果新的marginLeft小于当前的marginLeft (正方向)
+            // 如果新的marginLeft小于当前的marginLeft (正方向=>容器向左移动)
+            // console.log("old:" + Math.floor(curMarginLeft), "new:" + newLeft);
             if (newLeft < curMarginLeft) {
                 // curMarginLeft到newLeft需要distance的距离
-                distance = -(curMarginLeft - newLeft);
+                // distance = -(curMarginLeft - newLeft);
+                distance = newLeft - curMarginLeft;
             }
-            // 如果新的marginLeft大于当前的marginLeft (反方向)
+            // 如果新的marginLeft大于当前的marginLeft (反方向=>容器向右移动)
             else {
                 distance = -(totalWidth - Math.abs(newLeft - curMarginLeft));
             }
@@ -215,7 +216,6 @@ class Banner {
         // 如果容器运动方向向右 (按左边的按钮)
         else {
             // 正常方向
-            // console.log("cur:", curMarginLeft, "newLeft:", newLeft);
             if (newLeft > curMarginLeft) {
                 distance = newLeft - curMarginLeft;
             }
