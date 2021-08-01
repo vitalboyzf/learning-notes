@@ -73,7 +73,14 @@
       <recent name="算法刷题.二叉树" />
     </key>
   </component>
-  <component name="RunManager" selected="Application._150_逆波兰表达式求值">
+  <component name="RunManager" selected="Application.反转括号里的子串">
+    <configuration name="反转括号里的子串" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="算法刷题.每日一题.反转括号里的子串" />
+      <module name="李明杰数据结构" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="_150_逆波兰表达式求值" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="算法刷题.每日一题._150_逆波兰表达式求值" />
       <module name="李明杰数据结构" />
@@ -83,13 +90,6 @@
     </configuration>
     <configuration name="_1603_设计停车系统" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="算法刷题.每日一题._1603_设计停车系统" />
-      <module name="李明杰数据结构" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="_304_二维区域和检索矩阵不变" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="算法刷题.每日一题._304_二维区域和检索矩阵不变" />
       <module name="李明杰数据结构" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -111,11 +111,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.反转括号里的子串" />
         <item itemvalue="Application._150_逆波兰表达式求值" />
         <item itemvalue="Application._1603_设计停车系统" />
         <item itemvalue="Application._92_反转链表II" />
         <item itemvalue="Application._5_" />
-        <item itemvalue="Application._304_二维区域和检索矩阵不变" />
       </list>
     </recent_temporary>
   </component>

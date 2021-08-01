@@ -7,9 +7,9 @@
 export function fetchUsers(){
     //如果发现返回的是函数，就不会调用下一个中间件，而是直接调用函数
     return async function(dispatch,getState,extra){
-        dispatch是来自于store.dispatch(原始的dispatch)
-        getState
-        extra:应用中间件的使用传递参数thunk.withExtraArgument(参数);
+        // dispatch是来自于store.dispatch(原始的dispatch)
+        // getState
+        // extra:应用中间件的使用传递参数thunk.withExtraArgument(参数);
     }
 }
 ```

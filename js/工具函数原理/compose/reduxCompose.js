@@ -10,6 +10,8 @@ function compose(...middleware) {
 }
 
 function compose2(...middleware) {
+    if (middleware.length === 0) return (args) => args;
+    if (middleware.length === 1) return middleware[0];
     return middleware.reduce((pre, cur) => {
         return (...arg) => {
             return pre(cur(...arg));

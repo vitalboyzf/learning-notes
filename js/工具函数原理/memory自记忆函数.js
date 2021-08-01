@@ -16,4 +16,3 @@ function test() {
 const t = memory(test);
 console.log(t(5));
 const t1 = Promise.resolve();
-console.log(t1.);

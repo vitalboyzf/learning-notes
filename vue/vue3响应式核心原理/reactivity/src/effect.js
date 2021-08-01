@@ -1,6 +1,8 @@
-import { isIntegerKey } from "./share.js";
+import {
+    isIntegerKey
+} from "./share.js";
 let uid = 0;
-let activeEffect;// 永远指向正在运行的effect
+let activeEffect; // 永远指向正在运行的effect
 const effectStack = [];
 
 function createReactiveEffect(fn, options) {
@@ -19,17 +21,17 @@ function createReactiveEffect(fn, options) {
         }
     };
 
-    effect.uid = uid++;// 制作标识，用于区分effect
-    effect._isEffect = true;// 用于标识是否为响应式effect
-    effect.row = fn;// 保留effect对应原函数
-    effect.options = options;// 在effect保留属性
+    effect.uid = uid++; // 制作标识，用于区分effect
+    effect._isEffect = true; // 用于标识是否为响应式effect
+    effect.row = fn; // 保留effect对应原函数
+    effect.options = options; // 在effect保留属性
     return effect;
 }
 
 export function effect(fn, options = {}) {
     const effect = createReactiveEffect(fn, options);
     if (!options.lazy) {
-        effect();// 默认执行一次
+        effect(); // 默认执行一次
     }
     return effect;
 }
@@ -60,11 +62,28 @@ export function trigger(target, type, key, newValue, oldValue) {
     if (!depsMap) return;
     // 保存要执行的依赖函数
     const effects = new Set();
+    const computedRunners = new Set();
     const add = (effectsToAdd) => {
         if (effectsToAdd) {
-            effectsToAdd.forEach(effect => effects.add(effect));
+            effectsToAdd.forEach(effect => {
+                if (effect.options.computed) {
+                    computedRunners.add(effect);
+                } else {
+                    effects.add(effect);
+                }
+            });
         }
     };
+    // 依赖发生变化，要执行effect函数，如果是计算属性，就将dirty设置为false
+    const run = (effect) => {
+        if (effect.options.scheduler) {
+            effect.options.scheduler();
+        } else {
+            effect();
+        }
+    };
+    computedRunners.forEach(run);
+    effect.forEach(run);
     // 将所有要执行的effect，全部存到一个新的集合，最终一起执行
     // 1.看修改的是否是数组的长度
     if (key === "length" && Array.isArray(target)) {

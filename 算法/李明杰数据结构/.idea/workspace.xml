@@ -11,8 +11,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -73,7 +73,14 @@
       <recent name="算法刷题.二叉树" />
     </key>
   </component>
-  <component name="RunManager" selected="Application._150_逆波兰表达式求值">
+  <component name="RunManager" selected="Node.js.test.js">
+    <configuration name="反转括号里的子串" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="算法刷题.每日一题.反转括号里的子串" />
+      <module name="李明杰数据结构" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="_150_逆波兰表达式求值" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="算法刷题.每日一题._150_逆波兰表达式求值" />
       <module name="李明杰数据结构" />
@@ -88,20 +95,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="_304_二维区域和检索矩阵不变" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="算法刷题.每日一题._304_二维区域和检索矩阵不变" />
-      <module name="李明杰数据结构" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="_5_" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="算法刷题.动态规划._5_" />
-      <module name="李明杰数据结构" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="_92_反转链表II" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="算法刷题.每日一题._92_反转链表II" />
       <module name="李明杰数据结构" />
@@ -109,19 +102,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/算法刷题/每日一题/test.js" working-dir="$PROJECT_DIR$/算法刷题/每日一题">
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.test.js" />
+        <item itemvalue="Application.反转括号里的子串" />
         <item itemvalue="Application._150_逆波兰表达式求值" />
         <item itemvalue="Application._1603_设计停车系统" />
         <item itemvalue="Application._92_反转链表II" />
-        <item itemvalue="Application._5_" />
-        <item itemvalue="Application._304_二维区域和检索矩阵不变" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1485" height="196" key="GridCell.Tab.0.bottom" timestamp="1621999977021">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1485" height="196" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1621999977021" />
+    <state width="1485" height="196" key="GridCell.Tab.0.center" timestamp="1621999977021">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1485" height="196" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1621999977021" />
+    <state width="1485" height="196" key="GridCell.Tab.0.left" timestamp="1621999977021">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1485" height="196" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1621999977021" />
+    <state width="1485" height="196" key="GridCell.Tab.0.right" timestamp="1621999977021">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1485" height="196" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1621999977021" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

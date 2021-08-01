@@ -1,0 +1,33 @@
+<body>
+    <div class="wrapper">
+        <div class="first">
+            <span>span标签</span>
+            <a href="w">第一个a</a>
+            <a href="e">第二个a</a>
+            <p>我是一个p标签</p>
+            <div style="display:none">我是一个display的div标签</div>
+            <style>
+                p {
+                    color: red
+                }
+            </style>
+        </div>
+        <div class="second"></div>
+    </div>
+    <script>
+        const first = document.getElementsByClassName("first")[0];
+        console.log("innerText:", first.innerText);
+        // innerText: span标签 第一个a 第二个a
+        // 我是一个p标签
+        console.log("textContent:", first.textContent);
+        // textContent: 
+        //     span标签
+        //     第一个a
+        //     第二个a
+        //     我是一个p标签
+        //     我是一个display的div标签
+        //         p {
+        //             color: red
+        //         }
+    </script>
+</body>

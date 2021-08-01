@@ -10,7 +10,6 @@ class Set {
         }
     }
     add(data) {
-        // console.log(data+"ji")
         if (!this.has(data)) {
             this._datas.push(data);
         }

@@ -11,37 +11,25 @@
             margin: 0;
         }
 
-        .container {
-            background-color: #9ad5ff;
-            position: absolute;
-            left:10px;
-            top:10px;
+        .left {
+            width: 200px;
+            height: 500px;
+            float: left;
+            background-color: #f03;
         }
 
-        .item {
-            float: left;
-            width: 200px;
-            height: 200px;
-            margin: 20px;
-            background-color: #00A862;
+        .right {
+            width: calc(100% - 200px);
+            overflow: hidden;
+            background-color: #302;
+            height: 500px;
         }
     </style>
-
 </head>
 
 <body>
-    <div class="container">
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-    </div>
+    <div class="left">左边</div>
+    <div class="right">右边</div>
 </body>
 
 </html>

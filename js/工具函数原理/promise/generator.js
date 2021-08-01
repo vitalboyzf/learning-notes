@@ -18,7 +18,6 @@ const gen = generator();
 
 function asyncGenerator(generator, ...params) {
     const gen = generator(...params);
-
     function next(args) {
         const {
             value,

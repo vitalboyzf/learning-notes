@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 654px;
+            height: 44px;
+            display: flex;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        .box input {
+            width: 546px;
+            height: 100%;
+            box-sizing: border-box;
+            border-radius: 10px 0px 0px 10px;
+            outline: none;
+            border: 2px solid #a7aab5;
+            transition: width .3s;
+        }
+
+        .box input:focus {
+            width: 100%;
+            border-color: #4662d9;
+        }
+
+        .box input:focus+button {
+            width: 0px;
+            font-size: 0;
+            border:none;
+            padding: 0;
+        }
+
+        .box button {
+            width: 108px;
+            transition: width .3s;
+            height: 100%;
+            background-color: #4662d9;
+            color: #fff;
+            font-weight: 400;
+            border-radius: 0 10px 10px 0;
+            border: none;
+            font-size: 17px;
+            cursor: pointer;
+            position: relative;
+            right: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="text">
+        <button>百度一下</button>
+    </div>
+</body>
+
+</html>

@@ -204,6 +204,10 @@
                     if (!(proItem instanceof Promise)) {
                         index++;
                         ret[i] = proItem;
+                        if (index === promiseArr.length) {
+                            // 将最终的结果数组resolve
+                            resolve(ret);
+                        }
                         return;
                     }
                     // 当前proItem是promise实例，调用then方法获取resolve/reject处理结果
@@ -248,3 +252,6 @@
     else if (typeof window === "object" && window.window === window) window.Promise = Promise;
     else if (typeof global === "object") global.Promise = Promise;
 }());
+Promise.all([3, 4]).then(res => {
+    console.log(res);
+});

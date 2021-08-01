@@ -19,7 +19,7 @@
 ### 说说闭包
  - 当一块空间没有被引用的时候，这块空间就会被垃圾回收器回收 
 当B函数沿着作用域链引用了A函数的变量，B函数的[[scope]]指向A函数的VO,就持有了对A函数VO的引用，如果A函数执行完毕，A函数的VO本来是会被垃圾回收器回收的,但是由于B函数的引用，A函数的VO不会被回收，延长了A函数VO的生命周期，这就产生了闭包。
-
+- 闭包是一个对私有变量进行保存和以及保护不影响外部变量的机制
 场景
  - 循环事件绑定
 
@@ -44,11 +44,11 @@
   function curry(func, ...args) {
     const arity = func.length;
     if (args.length >= arity) {
-        func.apply(this, args);
+      return  func.apply(this, args);
     } else {
         return (...args1) => {
             const total = [...args, ...args1];
-            curry(func, ...total);
+           return curry(func, ...total);
         };
     }
 }

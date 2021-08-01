@@ -1,8 +1,18 @@
 // 实现 new Proxy(target,handler)
 // 拦截获取功能
-import { hasOwn, isIntegerKey, isObject } from "./share.js";
-import { reactive, readonly } from "./reactive.js";
-import { track, trigger } from "./effect.js";
+import {
+    hasOwn,
+    isIntegerKey,
+    isObject
+} from "./share.js";
+import {
+    reactive,
+    readonly
+} from "./reactive.js";
+import {
+    track,
+    trigger
+} from "./effect.js";
 // 拦截读取功能
 function createGetter(isReadonly = false, shallow = false) {
     return function get(target, key, receiver) {

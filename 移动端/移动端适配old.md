@@ -50,7 +50,7 @@
 ### 样式重置
  - -webkit-user-select:none 禁止用户选中文字
  - -webkit-touch-callout 禁止长按出菜单
- - -webpkit-tap-highlight-color:rgba(0,0,0,0) 去掉a,button,input默认样式
+ - -webkit-tap-highlight-color:rgba(0,0,0,0) 去掉a,button,input默认样式
  - -webkit-text-size-adjust:100% 切换横竖屏
  - -webkit-appearance:none border-radius:0
  - ::-webkit-input-placeholder
@@ -70,16 +70,15 @@
 					5、vw、vh适配
  ### 适配计算函数
  ```js
-(function(dos,win,desighWidth){
+(function(dos,win,designWidth){
     const html = dos.document.documentElement;
      const refresRem = ()=>{
      const clientWidth = html.clientWidth
-     if(clientWidth>desighWidth){
+     if(clientWidth>designWidth){
          html.style.fontSize = 100 + "px"
      }else{
-         html.style.fontSize = 100*(clientWidth/desighWidth) + "px";
+         html.style.fontSize = 100*(clientWidth/designWidth) + "px";
      }
-     
  }
 })()
  ```                   
